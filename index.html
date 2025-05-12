@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هندسة الأزهر 2025</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 30px;
+    }
+    #countdown {
+      font-size: 2em;
+      margin-bottom: 50px;
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      font-size: 1em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>هندسة الأزهر 2025</h1>
+  <div id="countdown">جاري الحساب...</div>
+
+  <footer>Made by Ahmed Elattar</footer>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const targetDate = new Date("2025-06-02T13:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "مبروك التخرج!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = ${days} يوم - ${hours} ساعة - ${minutes} دقيقة - ${seconds} ثانية;
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
